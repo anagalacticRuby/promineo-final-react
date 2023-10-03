@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CrudPage } from './components/CrudPage';
-import { TicTacToe } from './components/TicTacToe';
+import { Games } from './components/Games';
 import "bootstrap/dist/css/bootstrap.min.css"
 
 
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <CrudPage/>
-    <TicTacToe/>
+    <Games/>
     <App />
   </React.StrictMode>
 );

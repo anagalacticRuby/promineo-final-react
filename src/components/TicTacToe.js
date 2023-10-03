@@ -5,10 +5,11 @@ export function TicTacToe() {
   //This component will house the jsx responsible for creating and playing tictactoe games
   //The 'Games' component will import this component
 
-  //References: https://react.dev/learn/tutorial-tic-tac-toe (used to create the Tic-Tac-Toe board + its functionality)
-  //https://legacy.reactjs.org/docs/hooks-state.html (for more information about hooks)
-  //https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html
-  //https://react-bootstrap.netlify.app/docs/components/table/ (for information on how to style tables with react-bootstrap)
+  /* References: 
+  https://react.dev/learn/tutorial-tic-tac-toe (used to create the Tic-Tac-Toe board + its functionality)
+  https://legacy.reactjs.org/docs/hooks-state.html (for more information about hooks)
+  https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html
+  https://react-bootstrap.netlify.app/docs/components/table/ (for information on how to style tables with react-bootstrap) */
 
   /**
    * This functional component houses the event handler for each individual table cell of the Tic-Tac-Toe board
@@ -87,7 +88,9 @@ export function TicTacToe() {
               <th>{status}</th>
               <th></th>
               <th>
-                <Button onClick={resetGame} variant="danger">Reset</Button>
+                <Button onClick={resetGame} variant="danger">
+                  Reset
+                </Button>
               </th>
             </tr>
           </thead>

@@ -1,5 +1,6 @@
-import { WarGame } from "./WarGame";
+
 import { TicTacToe } from "./TicTacToe";
+import { RockPaperScissors } from "./RockPaperScissors";
 
 export function Games() {
   //This component houses the jsx for the 'games' page of the website.
@@ -13,7 +14,7 @@ export function Games() {
   //Something like this? Find a way to pass this to both games as state somehow so scores are consistent.
   //Losses don't need to be tracked because every game has a winner and loser, 
   //so subtracting the wins from one player by the other gets you their losses
-  gamedata = {
+  let gamedata = {
     Player1Wins: 0,
     Player2Wins: 0,
     Ties: 0,
@@ -25,7 +26,7 @@ export function Games() {
 
   return (
     <>
-      <WarGame findWinner={findWinner}/>
+      <RockPaperScissors/>
       <br />
       <TicTacToe />
     </>
