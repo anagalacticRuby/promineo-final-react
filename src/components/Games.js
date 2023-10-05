@@ -1,6 +1,7 @@
-
-import { TicTacToe } from "./TicTacToe";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 import { RockPaperScissors } from "./RockPaperScissors";
+import { TicTacToe } from "./TicTacToe";
 
 export function Games() {
   //This component houses the jsx for the 'games' page of the website.
@@ -12,7 +13,7 @@ export function Games() {
   //Or maybe store the data into an array so scores are kept and able to be carried over between sessions on the site
 
   //Something like this? Find a way to pass this to both games as state somehow so scores are consistent.
-  //Losses don't need to be tracked because every game has a winner and loser, 
+  //Losses don't need to be tracked because every game has a winner and loser,
   //so subtracting the wins from one player by the other gets you their losses
   let gamedata = {
     Player1Wins: 0,
@@ -20,15 +21,25 @@ export function Games() {
     Ties: 0,
   };
 
-  function findWinner(){
+  //Maybe have an outlet provide context to this component to enable id passing?
+
+  function setID(){
     
   }
+  function findWinner() {}
 
   return (
     <>
-      <RockPaperScissors/>
+      <Header />
+      <Card>
+        Card Header: Set your game ID to save scores! (style me later)
+        Current Game ID: {gameID}
+        <button onClick={setID}>Set Game ID</button>
+      </Card>
+      <RockPaperScissors />
       <br />
       <TicTacToe />
+      <Footer />
     </>
   );
 }

@@ -1,8 +1,9 @@
-1. Write up code for Rock Paper Scissors (Refactor WarGame.js into RPS) 
+1. Write up code for Rock Paper Scissors (Refactor WarGame.js into RPS)
 2. Write functionality for tic-tac-toe to tell if there's a tie
 3. Type functionality to enable the games to update data in the CrudTable.js file
 4. Make it so that the CrudTable.js file can take you to the games page and start games with an id of the scorecard associated
-5. Implement Router functionality
+5. Implement Router functionality https://reactrouter.com/en/6.16.0/start/tutorial#redirecting-new-records-to-the-edit-page
+ - Style active links so it's more clear what page the user is on
 6. Style everything with Bootstrap https://react-bootstrap.netlify.app/
 7. Add more content to the Home Page
 8. Make it so that the not found page will redirect you to 'home' after a certain amount of time

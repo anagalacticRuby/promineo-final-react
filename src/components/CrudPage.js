@@ -1,6 +1,8 @@
 import { CrudForm } from "./CrudForm";
 import { CrudTable } from "./CrudTable";
 import { useState, useEffect } from "react";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 export function CrudPage() {
   /**
@@ -80,6 +82,7 @@ export function CrudPage() {
 
   return (
     <>
+    <Header/>
       <CrudForm
         postData={postData}
         setNewPlayer1Score={setNewPlayer1Score}
@@ -98,6 +101,7 @@ export function CrudPage() {
         setUpdatedTieCount={setUpdatedTieCount}
         updatedTieCount={updatedTieCount}
       />
+      <Footer/>
     </>
   );
 }

@@ -23,7 +23,7 @@ export function CrudForm({
 
   return (
     <>
-      <Card fluid text="white" bg="primary" border="secondary">
+      <Card text="white" bg="primary" border="secondary">
         <CardHeader>Create New Score Card</CardHeader>
         <Card.Body>
           <Form>

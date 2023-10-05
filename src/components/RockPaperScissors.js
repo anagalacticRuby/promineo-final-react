@@ -3,9 +3,13 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
 export function RockPaperScissors() {
-  //This component is responsible for creating and enabling users to play a game of war with a virtual deck.
-  //The Card class defines the essential components that will make up Card for the game of war.
-
+  /**
+   * References:
+   * https://graphemica.com/ (for finding symbols to use via html encode)
+   * https://www.w3schools.com/js/js_random.asp (for how to set up a random number generator)
+   * https://www.geeksforgeeks.org/create-rock-paper-scissor-game-using-reactjs/ (for inspiration)
+   * https://react-bootstrap.netlify.app/docs/components/buttons (react bootstrap styling)
+   */
   //This component will house all the functionality and display elements for a game of Rock-Paper-Scissors
   //It will be displayed by the Games.js file
 
@@ -104,49 +108,44 @@ export function RockPaperScissors() {
           </thead>
           <tbody>
             <tr>
-              <td>
+              <td id="humanUpLeft">
                 <Button variant="info" onClick={() => handleClick("Rock")}>
                   Rock
                 </Button>
-              </td>{" "}
-              {/*Human upper left cell*/}
-              <td>(UPPER CENTER){outcome1}</td> {/** Board upper center cell */}
-              <td>
+              </td>
+              <td id="boardUpCenter">(UPPER CENTER){outcome1}</td>
+              <td id="computerUpRight">
                 <Button variant="warning" disabled>
                   Rock
                 </Button>
-              </td>{" "}
-              {/** Computer upper right cell */}
+              </td>
             </tr>
             <tr>
-              <td>
+              <td id="humanMiddleLeft">
                 <Button variant="info" onClick={() => handleClick("Paper")}>
                   Paper
                 </Button>
-              </td>{" "}
-              {/**Human middle left cell */}
-              <td>(CENTER) {battle}</td> {/**Board middle center cell*/}
-              <td>
+              </td>
+              <td id="boardMiddleCenter">(CENTER) {battle}</td>
+              <td id="computerMiddleRight">
                 <Button variant="warning" disabled>
                   Paper
                 </Button>
-              </td>{" "}
-              {/** Computer middle right cell */}
+              </td>
             </tr>
             <tr>
-              <td>
+              <td id="humanLowLeft">
                 <Button variant="info" onClick={() => handleClick("Scissors")}>
                   Scissors
                 </Button>
-              </td>{" "}
-              {/**Human lower left cell */}
-              <td>(LOWER CENTER){outcome2}</td> {/**Board middle center cell */}
-              <td>
+              </td>
+
+              <td id="boardLowCenter">(LOWER CENTER){outcome2}</td>
+              <td id="computerLowRight">
                 <Button variant="warning" disabled>
                   Scissors
                 </Button>
-              </td>{" "}
-              {/** Computer lower right cell */}
+              </td>
             </tr>
           </tbody>
         </Table>

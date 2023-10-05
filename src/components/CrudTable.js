@@ -2,6 +2,8 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import {Link} from "react-router-dom"
+
 export function CrudTable({
   scoreCard,
   deleteData,
@@ -19,9 +21,9 @@ export function CrudTable({
       <thead>
         <tr>
           <th>Score Cards</th>
-          <th> </th>
-          <th> </th>
-          <th> </th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       {/* Using the .map() function, create a table row then 4 cells containing the data read by the crud function
@@ -66,7 +68,9 @@ export function CrudTable({
               </Button>
             </td>
             <td>
-              <Button variant="success">Play</Button>
+              <Button variant="success">
+                <Link to="/games" style={{color: "white"}}>Play ({scoreCard.id})</Link>
+              </Button>
             </td>
           </tr>
         ))}

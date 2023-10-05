@@ -1,19 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { CrudPage } from "./components/CrudPage";
+import { Games } from "./components/Games";
+import { Home } from "./components/Home";
+import { References } from "./components/References";
+import reportWebVitals from "./reportWebVitals";
 // import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { CrudPage } from './components/CrudPage';
-import { Games } from './components/Games';
-import "bootstrap/dist/css/bootstrap.min.css"
 
+/**
+ * References:
+ * https://www.youtube.com/watch?v=nDGA3km5He4 (React Router 6 Tutorial, outdated but still useful for basics)
+ * https://reactrouter.com/en/main/start/tutorial (Official documentation for react router v6.16)
+ */
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/games",
+    element: <Games />,
+  },
+  {
+    path: "/crudpage",
+    element: <CrudPage />,
+  },
+  {
+    path: "/references",
+    element: <References />,
+  },
+]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <CrudPage/>
-    <Games/>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
