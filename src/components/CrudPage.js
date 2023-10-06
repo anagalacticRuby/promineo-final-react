@@ -61,17 +61,17 @@ export function CrudPage() {
       .then(() => alert("Score Card Created"));
   }
 
-  function putData(e, scoreCardObj) {
+  function putData(e, initialScoreCard, p1Score, p2Score, ties) {
     e.preventDefault();
 
     let updatedScoreCardObj = {
-      ...scoreCardObj,
-      player1Score: updatedPlayer1Score,
-      player2Score: updatedPlayer2Score,
-      ties: updatedTieCount,
+      ...initialScoreCard,
+      player1Score: p1Score,
+      player2Score: p2Score,
+      ties: ties,
     };
 
-    fetch(`${ENDPOINT}/${scoreCardObj.id}`, {
+    fetch(`${ENDPOINT}/${updatedScoreCardObj.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedScoreCardObj),
@@ -96,10 +96,6 @@ export function CrudPage() {
         scoreCard={scoreCard}
         deleteData={deleteData}
         putData={putData}
-        setUpdatedPlayer1Score={setUpdatedPlayer1Score}
-        setUpdatedPlayer2Score={setUpdatedPlayer2Score}
-        setUpdatedTieCount={setUpdatedTieCount}
-        updatedTieCount={updatedTieCount}
       />
       <Footer/>
     </>

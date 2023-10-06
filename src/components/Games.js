@@ -2,6 +2,8 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { RockPaperScissors } from "./RockPaperScissors";
 import { TicTacToe } from "./TicTacToe";
+import Card from "react-bootstrap/Card"
+
 
 export function Games() {
   //This component houses the jsx for the 'games' page of the website.
@@ -20,6 +22,8 @@ export function Games() {
     Player2Wins: 0,
     Ties: 0,
   };
+
+  let gameID;
 
   //Maybe have an outlet provide context to this component to enable id passing?
 

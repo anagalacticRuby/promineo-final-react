@@ -7,6 +7,7 @@ import { Games } from "./components/Games";
 import { Home } from "./components/Home";
 import { References } from "./components/References";
 import reportWebVitals from "./reportWebVitals";
+import {NotFound} from "./components/NotFound"
 // import './index.css';
 
 /**
@@ -14,10 +15,18 @@ import reportWebVitals from "./reportWebVitals";
  * https://www.youtube.com/watch?v=nDGA3km5He4 (React Router 6 Tutorial, outdated but still useful for basics)
  * https://reactrouter.com/en/main/start/tutorial (Official documentation for react router v6.16)
  */
+
+// fetch(mockApi)///
+// newValues = {p1Score, p2Score}
+// const updateCard = (object, ...args) => {
+
+// }
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <NotFound />,
   },
   {
     path: "/games",

@@ -1,20 +1,77 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export function Header() {
-  //TODO: Convert anchor tags into react router links, add <route> and <routes> functionality
   //This component's purpose is to house the jsx responsible for displaying a header component on every page
-  //The header will contain navigation links, and will be styled appropriately to show what page the user is currently on.
+  //The header will contain navigation NavLinks, and will be styled appropriately to show what page the user is currently on.
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar style={{ backgroundColor: "#0D503C" }}>
         <Nav id="Top">
-            <Link to="/">Home</Link>
-            <Link to="/games">Games</Link>
-            <Link to="/crudpage">Crud</Link>
-            <Link to="/references">References</Link>
+          <NavLink
+            to="/"
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#0D503C" : "darkblue",
+                fontWeight: isActive ? "bold" : "normal",
+                padding: "8px",
+                border: "solid 0.755px #1AA179",
+                borderRadius: "0.375rem",
+                backgroundColor: "#4DD4AC",
+              };
+            }}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#0D503C" : "darkblue",
+                fontWeight: isActive ? "bold" : "normal",
+                padding: "8px",
+                border: "solid 0.755px #1AA179",
+                borderRadius: "0.375rem",
+                backgroundColor: "#4DD4AC",
+              };
+            }}
+            to="/games"
+          >
+            Games
+          </NavLink>
+
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#0D503C" : "darkblue",
+                fontWeight: isActive ? "bold" : "normal",
+                padding: "8px",
+                border: "solid 0.755px #1AA179",
+                borderRadius: "0.375rem",
+                backgroundColor: "#4DD4AC",
+              };
+            }}
+            to="/crudpage"
+          >
+            Crud
+          </NavLink>
+
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#0D503C" : "darkblue",
+                fontWeight: isActive ? "bold" : "normal",
+                padding: "8px",
+                border: "solid 0.755px #1AA179",
+                borderRadius: "0.375rem",
+                backgroundColor: "#4DD4AC",
+              };
+            }}
+            to="/references"
+          >
+            References
+          </NavLink>
         </Nav>
       </Navbar>
     </>
