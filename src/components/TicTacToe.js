@@ -1,7 +1,7 @@
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-export function TicTacToe() {
+export function TicTacToe() {let turnCount = 0;
   //This component will house the jsx responsible for creating and playing tictactoe games
   //The 'Games' component will import this component
 
@@ -29,6 +29,8 @@ export function TicTacToe() {
    * It is the parent of GameCell, so that it can pass down event handlers and values down as props.
    */
   function GameBoard() {
+     //Count turns to be able to tell when ties happen
+
     const [xIsNext, setXIsNext] = useState(true); //X will always have the first move initially
     const [gameCells, setCells] = useState(Array(9).fill(null)); //set up the state array for values of cells in the table
 
@@ -63,6 +65,7 @@ export function TicTacToe() {
       }
       setCells(nextCells); //Set the state value using the callback function defined at the top level of this function
       setXIsNext(!xIsNext); //After updating the value displayed in that cell, update who's turn it is
+      turnCount = turnCount + 1;
     }
 
     const winner = determineWinner(gameCells);
@@ -72,13 +75,20 @@ export function TicTacToe() {
       /**
        * Add Code Here to update a player's score card
        */
-    } else {
+    } else if(turnCount < 9){
       status = "Next player: " + (xIsNext ? "X" : "O"); //Otherwise display who's turn is next
+      console.log(turnCount);
+      
+    }
+    else{
+      status = "Tie Game!"
+
+    }
       /**
        * Add Code Here in event of tie
        */
       //When the game is a tie, we need to add code here that displays a tie and stops the game.
-    }
+    
 
     return (
       <>

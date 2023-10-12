@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CrudPage } from "./components/CrudPage";
 import { Games } from "./components/Games";
 import { Home } from "./components/Home";
-import { References } from "./components/References";
+import { ReferencePage } from "./components/ReferencePage";
 import reportWebVitals from "./reportWebVitals";
 import {NotFound} from "./components/NotFound"
 // import './index.css';
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/references",
-    element: <References />,
+    element: <ReferencePage />,
   },
 ]);
 

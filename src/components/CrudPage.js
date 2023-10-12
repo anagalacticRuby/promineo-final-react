@@ -3,6 +3,11 @@ import { CrudTable } from "./CrudTable";
 import { useState, useEffect } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Card from "react-bootstrap/Card";
+import CardHeader from "react-bootstrap/esm/CardHeader";
 
 export function CrudPage() {
   /**
@@ -82,22 +87,50 @@ export function CrudPage() {
 
   return (
     <>
-    <Header/>
-      <CrudForm
-        postData={postData}
-        setNewPlayer1Score={setNewPlayer1Score}
-        setNewPlayer2Score={setNewPlayer2Score}
-        setNewTieCount={setNewTieCount}
-        newPlayer1Score={newPlayer1Score}
-        newPlayer2Score={newPlayer2Score}
-        newTieCount={newTieCount}
-      />
+      <Header />
+      <Container>
+        <Row>
+          <Col>
+            <Card text="white" bg="primary">
+              <CardHeader>Page Description</CardHeader>
+              <Card.Text>
+                <aside>
+                  Hi! This page of the website is designed for CRUD operations.
+                  CRUD stands for Create Read Update Delete, and they are very
+                  common operations especially when it comes to things like a
+                  database. To use this page of the website, you can first
+                  create a score card item to keep track of scores in the games
+                  page of the site. Once you press the 'Create Card' button, the
+                  card will be added to the database and the table will get
+                  updated. All new cards are added to the bottom of the table.
+                  From there, cards can be edited individually, and there's also
+                  a button to delete cards. The 'Play' button will direct you to
+                  the Games page, where you can play more games to add to your
+                  score.
+                </aside>
+              </Card.Text>
+            </Card>
+          </Col>
+          <Col>
+            <CrudForm
+              postData={postData}
+              setNewPlayer1Score={setNewPlayer1Score}
+              setNewPlayer2Score={setNewPlayer2Score}
+              setNewTieCount={setNewTieCount}
+              newPlayer1Score={newPlayer1Score}
+              newPlayer2Score={newPlayer2Score}
+              newTieCount={newTieCount}
+            />
+          </Col>
+        </Row>
+      </Container>
       <CrudTable
         scoreCard={scoreCard}
         deleteData={deleteData}
         putData={putData}
       />
-      <Footer/>
+
+      <Footer />
     </>
   );
 }
