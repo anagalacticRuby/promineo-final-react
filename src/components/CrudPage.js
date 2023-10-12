@@ -26,11 +26,6 @@ export function CrudPage() {
   const [newPlayer2Score, setNewPlayer2Score] = useState(0);
   const [newTieCount, setNewTieCount] = useState(0);
 
-  //Variables used for the update method
-  const [updatedPlayer1Score, setUpdatedPlayer1Score] = useState(0);
-  const [updatedPlayer2Score, setUpdatedPlayer2Score] = useState(0);
-  const [updatedTieCount, setUpdatedTieCount] = useState(0);
-
   function getData() {
     fetch(ENDPOINT)
       .then((data) => data.json())
@@ -87,14 +82,13 @@ export function CrudPage() {
 
   return (
     <>
-      <Header />
-      <Container>
+      <Container fluid>
         <Row>
           <Col>
             <Card text="white" bg="primary">
               <CardHeader>Page Description</CardHeader>
-              <Card.Text>
-                <aside>
+              <Card.Body>
+                <Card.Text>
                   Hi! This page of the website is designed for CRUD operations.
                   CRUD stands for Create Read Update Delete, and they are very
                   common operations especially when it comes to things like a
@@ -107,8 +101,8 @@ export function CrudPage() {
                   a button to delete cards. The 'Play' button will direct you to
                   the Games page, where you can play more games to add to your
                   score.
-                </aside>
-              </Card.Text>
+                </Card.Text>
+              </Card.Body>
             </Card>
           </Col>
           <Col>
@@ -129,8 +123,6 @@ export function CrudPage() {
         deleteData={deleteData}
         putData={putData}
       />
-
-      <Footer />
     </>
   );
 }

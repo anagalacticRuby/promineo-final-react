@@ -7,7 +7,10 @@ import { Games } from "./components/Games";
 import { Home } from "./components/Home";
 import { ReferencePage } from "./components/ReferencePage";
 import reportWebVitals from "./reportWebVitals";
-import {NotFound} from "./components/NotFound"
+import { NotFound } from "./components/NotFound";
+
+import App from "./App";
+
 // import './index.css';
 
 /**
@@ -22,30 +25,37 @@ import {NotFound} from "./components/NotFound"
 
 // }
 
-const router = createBrowserRouter([
+
+const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-    errorElement: <NotFound />,
+    element: <App/>,
+    errorElement: <NotFound/>,
+    children: [
+      {
+        path: "/home",
+        element: <Home/>,
+      },
+      {
+        path: "/games",
+        element: <Games/>
+      },
+      {
+        path: "/crudpage",
+        element: <CrudPage/>
+      },
+      {
+        path: "/references",
+        element: <ReferencePage/>
+      }
+    ]
   },
-  {
-    path: "/games",
-    element: <Games />,
-  },
-  {
-    path: "/crudpage",
-    element: <CrudPage />,
-  },
-  {
-    path: "/references",
-    element: <ReferencePage />,
-  },
-]);
+])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={appRouter} />
   </React.StrictMode>
 );
 

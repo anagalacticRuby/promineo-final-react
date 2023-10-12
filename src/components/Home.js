@@ -5,7 +5,6 @@ export function Home() {
   //This component is all about the information and elements displayed on the 'home' screen of the website
   return (
     <>
-      <Header />
       <main>
         <h1>Welcome!</h1>
         <p>
@@ -20,7 +19,6 @@ export function Home() {
           CRUD page. The last page, "References", has a list of websites I used as references in the making of this website.
         </p>
       </main>
-      <Footer />
     </>
   );
 }

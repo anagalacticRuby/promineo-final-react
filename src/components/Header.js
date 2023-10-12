@@ -11,7 +11,7 @@ export function Header() {
       <Navbar style={{ backgroundColor: "#0D503C" }}>
         <Nav id="Top">
           <NavLink
-            to="/"
+            to="/home"
             style={({ isActive }) => {
               return {
                 color: isActive ? "#0D503C" : "darkblue",

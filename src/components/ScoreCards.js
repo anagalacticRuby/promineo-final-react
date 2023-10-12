@@ -56,7 +56,7 @@ export function ScoreCards({ scoreCard, putData, deleteData }) {
       </td>
       <td>
         <Button variant="success">
-          <Link to="/games" style={{ color: "white" }}>
+          <Link to="/games" style={{ color: "white" }} state={scoreCard.id}>
             Play ({scoreCard.id})
           </Link>
         </Button>

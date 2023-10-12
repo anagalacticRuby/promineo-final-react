@@ -10,7 +10,6 @@ export function ReferencePage() {
   //That way each reference gets its own little display and can be viewed, but also to demonstrate styling and design with bootstrap in mind.
   return (
     <>
-      <Header />
       <Container fluid="xl">
         <Row>
           <Col>
@@ -69,8 +68,6 @@ export function ReferencePage() {
           </Col>
         </Row>
       </Container>
-
-      <Footer />
     </>
   );
 }
