@@ -1,7 +1,8 @@
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-export function TicTacToe() {let turnCount = 0;
+export function TicTacToe({ gameData, updateScores }) {
+  let turnCount = 0; //Keeps track of scores, declared up top so everyone can access it
   //This component will house the jsx responsible for creating and playing tictactoe games
   //The 'Games' component will import this component
 
@@ -17,7 +18,7 @@ export function TicTacToe() {let turnCount = 0;
    */
   function GameCell({ value, onCellClick }) {
     return (
-      <Button variant="primary" className="gameCell" onClick={onCellClick}>
+      <Button variant="success" className="gameCell" onClick={onCellClick}>
         {value}
       </Button>
     );
@@ -29,7 +30,7 @@ export function TicTacToe() {let turnCount = 0;
    * It is the parent of GameCell, so that it can pass down event handlers and values down as props.
    */
   function GameBoard() {
-     //Count turns to be able to tell when ties happen
+    //Count turns to be able to tell when ties happen
 
     const [xIsNext, setXIsNext] = useState(true); //X will always have the first move initially
     const [gameCells, setCells] = useState(Array(9).fill(null)); //set up the state array for values of cells in the table
@@ -46,8 +47,9 @@ export function TicTacToe() {let turnCount = 0;
       } else {
         setXIsNext(false);
       }
-      console.log(gameCells); //Used for debugging
+      // console.log(gameCells); //Used for debugging
     }
+    
     /*
      * handleClick is an event handler that fires upon a player clicking one of the GameCell components.
      * It takes in 'i' as a parameter, which is the 'number' of the game cell.
@@ -71,32 +73,58 @@ export function TicTacToe() {let turnCount = 0;
     const winner = determineWinner(gameCells);
     let status;
     if (winner) {
-      status = "Winner: " + winner; //When a winner is found, display who's the winner!
+      
+
+      if (winner === "X") {
+        status = "Winner: Player 1! (X)" //When a winner is found, display who's the winner!
+        gameData.Player1Wins++;
+        updateScores(
+          gameData,
+          gameData.Player1Wins,
+          gameData.Player2Wins,
+          gameData.Ties,
+          gameData.id
+        );
+      } else if (winner === "O") {
+        status = "Winner: Player 2! (O)" //Display who's a winner when there is one!
+        gameData.Player2Wins++;
+        updateScores(
+          gameData,
+          gameData.Player1Wins,
+          gameData.Player2Wins,
+          gameData.Ties,
+          gameData.id
+        );
+      }
       /**
        * Add Code Here to update a player's score card
        */
-    } else if(turnCount < 9){
+    } else if (turnCount < 9) {
       status = "Next player: " + (xIsNext ? "X" : "O"); //Otherwise display who's turn is next
-      console.log(turnCount);
-      
+      // console.log(turnCount); Used for debugging to make sure turnCount updates properly
+    } else {
+      status = "Tie Game!";
+      gameData.Ties++;
+      updateScores(
+        gameData,
+        gameData.Player1Wins,
+        gameData.Player2Wins,
+        gameData.Ties,
+        gameData.id
+      );
     }
-    else{
-      status = "Tie Game!"
-
-    }
-      /**
-       * Add Code Here in event of tie
-       */
-      //When the game is a tie, we need to add code here that displays a tie and stops the game.
-    
+    /**
+     * Add Code Here in event of tie
+     */
+    //When the game is a tie, we need to add code here that displays a tie and stops the game.
 
     return (
       <>
-        <Table striped bordered hover style={{ textAlign: "center" }}>
+        <Table variant="dark" striped bordered hover style={{ textAlign: "center" }}>
           <thead>
             <tr className="header-row">
               <th>{status}</th>
-              <th></th>
+              <th>TicTacToe</th>
               <th>
                 <Button onClick={resetGame} variant="danger">
                   Reset

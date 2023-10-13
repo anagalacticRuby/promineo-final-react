@@ -1,11 +1,11 @@
 import React from "react";
-import { Footer } from "./Footer";
-import { Header } from "./Header";
+import Card from "react-bootstrap/Card"
 export function Home() {
   //This component is all about the information and elements displayed on the 'home' screen of the website
   return (
     <>
-      <main>
+    <Card bg="success" text="light">
+      <Card.Body>
         <h1>Welcome!</h1>
         <p>
           Hello and welcome to my incredible website! I made this website using
@@ -18,7 +18,7 @@ export function Home() {
           interact with with a form and a table featuring CRUD operations in the
           CRUD page. The last page, "References", has a list of websites I used as references in the making of this website.
         </p>
-      </main>
+      </Card.Body></Card>
     </>
   );
 }

@@ -1,13 +1,11 @@
+import { useEffect, useState } from "react";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import CardHeader from "react-bootstrap/esm/CardHeader";
 import { CrudForm } from "./CrudForm";
 import { CrudTable } from "./CrudTable";
-import { useState, useEffect } from "react";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Card from "react-bootstrap/Card";
-import CardHeader from "react-bootstrap/esm/CardHeader";
 
 export function CrudPage() {
   /**

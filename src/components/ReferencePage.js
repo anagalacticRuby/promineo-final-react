@@ -1,5 +1,3 @@
-import { Header } from "./Header";
-import { Footer } from "./Footer";
 import { Reference } from "./Reference";
 import { Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";

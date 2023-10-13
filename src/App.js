@@ -17,9 +17,10 @@ function App() {
   /**
    * All this code does is automatically redirect you to the 'home' page upon starting up the app
    * So that way I could potentially have access to features like state and context
-   * But I have yet to figure out how to properly pass all the things I want down to specific pages
-   * such as methods for CRUD operations to both the Crud page and the Games page
+   * But it also means that all pages have the header and footer components rendered
+   * Without having to type <Header> and <Footer> in each page
    */
+
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {

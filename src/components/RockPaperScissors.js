@@ -2,7 +2,10 @@ import { useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
-export function RockPaperScissors() {
+export function RockPaperScissors({gameData, updateScores }) {
+
+
+
   /**
    * References:
    * https://graphemica.com/ (for finding symbols to use via html encode)
@@ -14,7 +17,7 @@ export function RockPaperScissors() {
   //It will be displayed by the Games.js file
 
   /**
-   * RPSBoard is the primary function that will set up a Card to house all the JSX that displays the game.
+   * RPSBoard is the primary function that will set up a Table to house all the JSX that displays the game.
    * It will probably return something, idk.
    * @returns the winner's score?
    */
@@ -26,6 +29,7 @@ export function RockPaperScissors() {
     //Declare it now to enable changing it later.
     let outcome1, outcome2; //These variables will update to display the outcome of the battle.
     //Declare now to update later.
+    let winner;
 
     /**
      * handleClick is called whenever a player clicks one of the three options in the RPS table
@@ -53,7 +57,11 @@ export function RockPaperScissors() {
        */
       outcome1 = <b>Tie</b>;
       outcome2 = <b>Tie</b>;
+      winner = <b style={{color:"Gray"}}>Tie Game!</b>;
       battle = playerChoice + " = " + computerChoice;
+      gameData.Ties++;
+      updateScores(gameData, gameData.Player1Wins, gameData.Player2Wins, gameData.Ties, gameData.id)
+      console.log(gameData);
     } else if (
       (playerChoice === "Rock" && computerChoice === "Scissors") ||
       (playerChoice === "Paper" && computerChoice === "Rock") ||
@@ -66,7 +74,10 @@ export function RockPaperScissors() {
        */
       outcome1 = <b>&lArr; Wins</b>;
       outcome2 = <b>Loses &rArr;</b>;
+      winner = <b style={{color:"blue"}}>Player 1 Wins!</b>;
       battle = playerChoice + " > " + computerChoice;
+      gameData.Player1Wins++;
+      updateScores(gameData, gameData.Player1Wins, gameData.Player2Wins, gameData.Ties, gameData.id)
     } else {
       /**
        * Otherwise the player has picked an option that loses to the computer.
@@ -75,7 +86,10 @@ export function RockPaperScissors() {
        */
       outcome1 = <b>&lArr; Loses</b>;
       outcome2 = <b>Wins &rArr;</b>;
+      winner = <b style={{color:"red"}}>Player 2 Wins!</b>;
       battle = playerChoice + " < " + computerChoice;
+      gameData.Player2Wins++;
+      updateScores(gameData, gameData.Player1Wins, gameData.Player2Wins, gameData.Ties, gameData.id)
     }
 
     function generateComputerChoice() {
@@ -98,12 +112,12 @@ export function RockPaperScissors() {
 
     return (
       <>
-        <Table striped style={{ textAlign: "center" }}>
+        <Table variant="secondary" hover striped style={{ textAlign: "center" }}>
           <thead>
             <tr>
-              <th>Welcome</th>
-              <th>To</th>
-              <th>RockPaperScissors</th>
+              <th>Rock-Paper-Scissors</th>
+              <th></th>
+              <th>{winner}</th>
             </tr>
           </thead>
           <tbody>
@@ -113,9 +127,9 @@ export function RockPaperScissors() {
                   Rock
                 </Button>
               </td>
-              <td id="boardUpCenter">(UPPER CENTER){outcome1}</td>
+              <td id="boardUpCenter">{outcome1}</td>
               <td id="computerUpRight">
-                <Button variant="warning" disabled>
+                <Button variant="danger" disabled>
                   Rock
                 </Button>
               </td>
@@ -126,9 +140,9 @@ export function RockPaperScissors() {
                   Paper
                 </Button>
               </td>
-              <td id="boardMiddleCenter">(CENTER) {battle}</td>
+              <td id="boardMiddleCenter">{battle}</td>
               <td id="computerMiddleRight">
-                <Button variant="warning" disabled>
+                <Button variant="danger" disabled>
                   Paper
                 </Button>
               </td>
@@ -140,9 +154,9 @@ export function RockPaperScissors() {
                 </Button>
               </td>
 
-              <td id="boardLowCenter">(LOWER CENTER){outcome2}</td>
+              <td id="boardLowCenter">{outcome2}</td>
               <td id="computerLowRight">
-                <Button variant="warning" disabled>
+                <Button variant="danger" disabled>
                   Scissors
                 </Button>
               </td>

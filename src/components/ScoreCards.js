@@ -2,6 +2,7 @@ import { useState } from "react";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import Badge from "react-bootstrap/Badge"
 
 export function ScoreCards({ scoreCard, putData, deleteData }) {
   //Variables used for the update method
@@ -16,6 +17,7 @@ export function ScoreCards({ scoreCard, putData, deleteData }) {
         <FormControl
           type="number"
           defaultValue={scoreCard.player1Score}
+          name="Player1Wins"
           onChange={(e) => setUpdatedPlayer1Score(e.target.value)}
         />
         <br />
@@ -23,6 +25,7 @@ export function ScoreCards({ scoreCard, putData, deleteData }) {
         <FormControl
           type="number"
           defaultValue={scoreCard.player2Score}
+          name="Player2Wins"
           onChange={(e) => setUpdatedPlayer2Score(e.target.value)}
         />
         <br />
@@ -30,6 +33,7 @@ export function ScoreCards({ scoreCard, putData, deleteData }) {
         <FormControl
           type="number"
           placeholder={scoreCard.ties}
+          name="TieCount"
           onChange={(e) => setUpdatedTieCount(e.target.value)}
         />
       </td>
@@ -57,9 +61,13 @@ export function ScoreCards({ scoreCard, putData, deleteData }) {
       <td>
         <Button variant="success">
           <Link to="/games" style={{ color: "white" }} state={scoreCard.id}>
-            Play ({scoreCard.id})
+            Play
           </Link>
         </Button>
+        <br/>
+        <Badge  bg="secondary" pill>
+          Score ID: {scoreCard.id}
+        </Badge>
       </td>
     </tr>
   );
