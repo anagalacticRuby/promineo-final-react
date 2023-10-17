@@ -88,17 +88,17 @@ export function CrudPage() {
               <Card.Body>
                 <Card.Text>
                   Hi! This page of the website is designed for CRUD operations.
-                  CRUD stands for Create Read Update Delete, and they are very
-                  common operations especially when it comes to things like a
-                  database. To use this page of the website, you can first
-                  create a score card item to keep track of scores in the games
-                  page of the site. Once you press the 'Create Card' button, the
-                  card will be added to the database and the table will get
-                  updated. All new cards are added to the bottom of the table.
-                  From there, cards can be edited individually, and there's also
-                  a button to delete cards. The 'Play' button will direct you to
-                  the Games page, where you can play more games to add to your
-                  score.
+                  CRUD stands for <u>C</u>reate <u>R</u>ead <u>U</u>pdate{" "}
+                  <u>D</u>elete, and they are very common operations especially
+                  when it comes to things like a database. To use this page of
+                  the website, you can first create a score card item to keep
+                  track of scores in the games page of the site. Once you press
+                  the 'Create Card' button, the card will be added to the
+                  database and the table will get updated. All new cards are
+                  added to the bottom of the table. From there, cards can be
+                  edited individually, and there's also a button to delete
+                  cards. The 'Play' button will direct you to the Games page,
+                  where you can play more games to add to your score.
                 </Card.Text>
               </Card.Body>
             </Card>

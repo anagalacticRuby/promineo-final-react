@@ -15,7 +15,7 @@ export function Footer() {
         >
           <Nav>
             <Navbar.Text data-bs-theme="light">
-              <pre>This website was made with React!  </pre>
+              <pre>This website was made with React! </pre>
             </Navbar.Text>
             <Button href="#Top" variant="primary">
               To Top

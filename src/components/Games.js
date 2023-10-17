@@ -119,7 +119,8 @@ export function Games() {
               <Card.Header>Set your game ID to save scores!</Card.Header>
               <Card.Body>Current Game ID: {idText}</Card.Body>
               <Card.Footer>
-                Set Game ID (Also gets scores)<br/>
+                Set Game ID (Also gets scores)
+                <br />
                 <input
                   type="number"
                   value={gameID}
@@ -144,9 +145,9 @@ export function Games() {
             <Card text="dark" bg="info" border="danger">
               <Card.Header>Scores for ID: {gameData.id}</Card.Header>
               <Card.Body>
-                Player 1:{gameData.Player1Wins}
+                Player 1's Wins: {gameData.Player1Wins}
                 <br />
-                Player 2: {gameData.Player2Wins}
+                Player 2's Wins: {gameData.Player2Wins}
                 <br />
                 Ties: {gameData.Ties}
               </Card.Body>
@@ -169,11 +170,19 @@ export function Games() {
       <Accordion flush defaultActiveKey="0">
         <Accordion.Item eventKey="0">
           <Accordion.Header>Rock Paper Scissors</Accordion.Header>
-          <Accordion.Body> <RockPaperScissors gameData={gameData} updateScores={updateScores} /></Accordion.Body>
+          <Accordion.Body>
+            {" "}
+            <RockPaperScissors
+              gameData={gameData}
+              updateScores={updateScores}
+            />
+          </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
           <Accordion.Header>Tic Tac Toe</Accordion.Header>
-          <Accordion.Body><TicTacToe gameData={gameData} updateScores={updateScores} /></Accordion.Body>
+          <Accordion.Body>
+            <TicTacToe gameData={gameData} updateScores={updateScores} />
+          </Accordion.Body>
         </Accordion.Item>
       </Accordion>
     </>

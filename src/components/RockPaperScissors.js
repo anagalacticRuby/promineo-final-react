@@ -2,10 +2,7 @@ import { useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
-export function RockPaperScissors({gameData, updateScores }) {
-
-
-
+export function RockPaperScissors({ gameData, updateScores }) {
   /**
    * References:
    * https://graphemica.com/ (for finding symbols to use via html encode)
@@ -57,10 +54,16 @@ export function RockPaperScissors({gameData, updateScores }) {
        */
       outcome1 = <b>Tie</b>;
       outcome2 = <b>Tie</b>;
-      winner = <b style={{color:"Gray"}}>Tie Game!</b>;
+      winner = <b style={{ color: "Gray" }}>Tie Game!</b>;
       battle = playerChoice + " = " + computerChoice;
       gameData.Ties++;
-      updateScores(gameData, gameData.Player1Wins, gameData.Player2Wins, gameData.Ties, gameData.id)
+      updateScores(
+        gameData,
+        gameData.Player1Wins,
+        gameData.Player2Wins,
+        gameData.Ties,
+        gameData.id
+      );
       console.log(gameData);
     } else if (
       (playerChoice === "Rock" && computerChoice === "Scissors") ||
@@ -74,10 +77,16 @@ export function RockPaperScissors({gameData, updateScores }) {
        */
       outcome1 = <b>&lArr; Wins</b>;
       outcome2 = <b>Loses &rArr;</b>;
-      winner = <b style={{color:"blue"}}>Player 1 Wins!</b>;
+      winner = <b style={{ color: "blue" }}>Player 1 Wins!</b>;
       battle = playerChoice + " > " + computerChoice;
       gameData.Player1Wins++;
-      updateScores(gameData, gameData.Player1Wins, gameData.Player2Wins, gameData.Ties, gameData.id)
+      updateScores(
+        gameData,
+        gameData.Player1Wins,
+        gameData.Player2Wins,
+        gameData.Ties,
+        gameData.id
+      );
     } else {
       /**
        * Otherwise the player has picked an option that loses to the computer.
@@ -86,10 +95,16 @@ export function RockPaperScissors({gameData, updateScores }) {
        */
       outcome1 = <b>&lArr; Loses</b>;
       outcome2 = <b>Wins &rArr;</b>;
-      winner = <b style={{color:"red"}}>Player 2 Wins!</b>;
+      winner = <b style={{ color: "red" }}>Player 2 Wins!</b>;
       battle = playerChoice + " < " + computerChoice;
       gameData.Player2Wins++;
-      updateScores(gameData, gameData.Player1Wins, gameData.Player2Wins, gameData.Ties, gameData.id)
+      updateScores(
+        gameData,
+        gameData.Player1Wins,
+        gameData.Player2Wins,
+        gameData.Ties,
+        gameData.id
+      );
     }
 
     function generateComputerChoice() {
@@ -112,7 +127,12 @@ export function RockPaperScissors({gameData, updateScores }) {
 
     return (
       <>
-        <Table variant="secondary" hover striped style={{ textAlign: "center" }}>
+        <Table
+          variant="secondary"
+          hover
+          striped
+          style={{ textAlign: "center" }}
+        >
           <thead>
             <tr>
               <th>Rock-Paper-Scissors</th>

@@ -2,7 +2,7 @@
 ~~2. Write functionality for tic-tac-toe to tell if there's a tie~~ [**DONE**]
 ~~3. Type functionality to enable the games to update data in the CrudTable.js file [**DONE**]~~
 ~~4. Make it so that the CrudTable.js file can take you to the games page and start games with an id of the scorecard associated~~ [**DONE**]
-~~5. Implement Router functionality https://reactrouter.com/en/6.16.0/start/tutorial#redirecting-new-records-to-the-edit-page~~
+~~5. Implement Router functionality https://reactrouter.com/en/6.16.0/start/tutorial#redirecting-new-records-to-the-edit-page ~~[**DONE**]
 ~~- Style active links so it's more clear what page the user is on~~ [**DONE**]
 ~~5. Style everything with Bootstrap https://react-bootstrap.netlify.app/~~ [**DONE**]
 ~~6. Add more content to the Home Page~~ [**DONE**]

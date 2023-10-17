@@ -2,7 +2,7 @@ import { useState } from "react";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import Badge from "react-bootstrap/Badge"
+import Badge from "react-bootstrap/Badge";
 
 export function ScoreCards({ scoreCard, putData, deleteData }) {
   //Variables used for the update method
@@ -32,7 +32,7 @@ export function ScoreCards({ scoreCard, putData, deleteData }) {
         Ties:{" "}
         <FormControl
           type="number"
-          placeholder={scoreCard.ties}
+          defaultValue={scoreCard.ties}
           name="TieCount"
           onChange={(e) => setUpdatedTieCount(e.target.value)}
         />
@@ -64,8 +64,8 @@ export function ScoreCards({ scoreCard, putData, deleteData }) {
             Play
           </Link>
         </Button>
-        <br/>
-        <Badge  bg="secondary" pill>
+        <br />
+        <Badge bg="secondary" pill>
           Score ID: {scoreCard.id}
         </Badge>
       </td>

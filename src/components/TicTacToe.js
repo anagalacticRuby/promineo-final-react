@@ -49,7 +49,7 @@ export function TicTacToe({ gameData, updateScores }) {
       }
       // console.log(gameCells); //Used for debugging
     }
-    
+
     /*
      * handleClick is an event handler that fires upon a player clicking one of the GameCell components.
      * It takes in 'i' as a parameter, which is the 'number' of the game cell.
@@ -73,10 +73,8 @@ export function TicTacToe({ gameData, updateScores }) {
     const winner = determineWinner(gameCells);
     let status;
     if (winner) {
-      
-
       if (winner === "X") {
-        status = "Winner: Player 1! (X)" //When a winner is found, display who's the winner!
+        status = "Winner: Player 1! (X)"; //When a winner is found, display who's the winner!
         gameData.Player1Wins++;
         updateScores(
           gameData,
@@ -86,7 +84,7 @@ export function TicTacToe({ gameData, updateScores }) {
           gameData.id
         );
       } else if (winner === "O") {
-        status = "Winner: Player 2! (O)" //Display who's a winner when there is one!
+        status = "Winner: Player 2! (O)"; //Display who's a winner when there is one!
         gameData.Player2Wins++;
         updateScores(
           gameData,
@@ -120,7 +118,13 @@ export function TicTacToe({ gameData, updateScores }) {
 
     return (
       <>
-        <Table variant="dark" striped bordered hover style={{ textAlign: "center" }}>
+        <Table
+          variant="dark"
+          striped
+          bordered
+          hover
+          style={{ textAlign: "center" }}
+        >
           <thead>
             <tr className="header-row">
               <th>{status}</th>
