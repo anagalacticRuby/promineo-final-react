@@ -42,16 +42,16 @@ export function Games() {
     idText = 1;
   }
 
-  const [gameID, setGameID] = useState(0); //Defaults to 0 so React doesn't throw errors for a null value changing to a non-null one
+  const [cardID, setCardID] = useState(0); //Defaults to 0 so React doesn't throw errors for a null value changing to a non-null one
   const [scoreCard, setScoreCard] = useState([{}]);
-  // console.log("line 46, printing gameID:" + gameID); Used for making sure gameID updates properly
+  // console.log("line 46, printing cardID:" + cardID); Used for making sure cardID updates properly
 
   /**
    * this Effect will make the page 'open' with values if useLocation returns a value.
    * otherwise it will default to showing the scores saved in the scoreCard with an ID of 1.
    * while hooks and effects can't be used inside loops or conditonals, there isn't anything from stopping us from adding a conditional
    * INSIDE of the hook.
-   * the gameID is set after the data is fetched so that way values update properly
+   * the cardID is set after the data is fetched so that way values update properly
    * whenever a player wins or ties a game.
    */
   useEffect(() => {
@@ -59,12 +59,12 @@ export function Games() {
       fetch(`${ENDPOINT}/${state}`)
         .then((data) => data.json())
         .then((data) => setScoreCard(data));
-      setGameID(state);
+      setCardID(state);
     } else {
       fetch(`${ENDPOINT}/${1}`)
         .then((data) => data.json())
         .then((data) => setScoreCard(data));
-      setGameID(1);
+      setCardID(1);
     }
   }, []);
 
@@ -95,7 +95,7 @@ export function Games() {
       body: JSON.stringify(updatedScoreCardObj),
     })
       .then(() => {
-        fetch(`${ENDPOINT}/${gameID}`)
+        fetch(`${ENDPOINT}/${cardID}`)
           .then((data) => data.json())
           .then((data) => setScoreCard(data));
       })
@@ -116,22 +116,22 @@ export function Games() {
         <Row>
           <Col>
             <Card text="white" bg="secondary" border="success">
-              <Card.Header>Set your game ID to save scores!</Card.Header>
-              <Card.Body>Current Game ID: {idText}</Card.Body>
+              <Card.Header>Set your card ID to save scores!</Card.Header>
+              <Card.Body>Current Card ID: {idText}</Card.Body>
               <Card.Footer>
-                Set Game ID (Also gets scores)
+                Set Card ID (Also retrieves scores)
                 <br />
                 <input
                   type="number"
-                  value={gameID}
-                  name="gameID"
-                  onChange={(e) => setGameID(e.target.value)}
+                  value={cardID}
+                  name="cardID"
+                  onChange={(e) => setCardID(e.target.value)}
                 />
                 <Link
                   to="/games"
-                  state={gameID}
+                  state={cardID}
                   onClick={() => {
-                    fetch(`${ENDPOINT}/${gameID}`)
+                    fetch(`${ENDPOINT}/${cardID}`)
                       .then((data) => data.json())
                       .then((data) => setScoreCard(data));
                   }}
@@ -143,7 +143,7 @@ export function Games() {
           </Col>
           <Col>
             <Card text="dark" bg="info" border="danger">
-              <Card.Header>Scores for ID: {gameData.id}</Card.Header>
+              <Card.Header>Scores for Card ID #{gameData.id}</Card.Header>
               <Card.Body>
                 Player 1's Wins: {gameData.Player1Wins}
                 <br />

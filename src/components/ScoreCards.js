@@ -66,7 +66,7 @@ export function ScoreCards({ scoreCard, putData, deleteData }) {
         </Button>
         <br />
         <Badge bg="secondary" pill>
-          Score ID: {scoreCard.id}
+          Card ID: {scoreCard.id}
         </Badge>
       </td>
     </tr>

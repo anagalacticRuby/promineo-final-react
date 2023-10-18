@@ -11,9 +11,8 @@ export function Home() {
           <h1>Welcome!</h1>
           <p>
             Hello and welcome to my incredible website!
-            <br /> I made this website using create-react-app, and it features styling using
-            React-Bootstrap.
-            <br /> React router (v6.16) was used to enable the navigation between
+            <br /> I made this website using create-react-app, and it uses React-Bootsrap for styling.
+            <br /> React router (v6.16) was used to implement the navigation between
             multiple pages.
           </p>
           <ListGroup>
